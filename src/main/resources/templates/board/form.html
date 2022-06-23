@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>작성</title>
+</head>
+<body>
+<div>
+    <form action="#" th:action="@{/board/form}" th:object="${board}" method="post">
+        <input type="hidden" th:field="*{id}">
+            <div>
+                <textarea rows="1" cols="50" placeholder="제목" th:field="*{title}" maxlength="100" required></textarea>
+            </div>
+
+            <div>
+                <textarea rows="7" cols="50" placeholder="내용" th:field="*{comment}" required></textarea>
+            </div>
+            <div>
+                <button type="submit">등록</button>
+                <button type="button" onclick="location.href='list'">취소</button>
+                <a type="button" th:href="@{/board(id=${board.id})}">삭제</a>
+            </div>
+    </form>
+</div>
+</body>
+</html>
