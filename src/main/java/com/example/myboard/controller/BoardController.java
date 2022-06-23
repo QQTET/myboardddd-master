@@ -2,7 +2,6 @@ package com.example.myboard.controller;
 
 import com.example.myboard.model.Board;
 import com.example.myboard.repository.BoardRepository;
-import com.example.myboard.service.Boardservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +12,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
-    @Autowired
-    private Boardservice boardService;
+
     @Autowired
     private BoardRepository boardRepository;
 
@@ -40,10 +38,5 @@ public class BoardController {
        return "redirect:/board/list";
     }
 
-    @DeleteMapping("/board/{id}")
-    public String boardDelete(@PathVariable("id") Long id){
-        boardService.boardDelete(id);
-       return "redirect:/board/list";
-    }
 
 }
